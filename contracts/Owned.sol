@@ -26,58 +26,58 @@ contract Mortal is Owned {
     }
 }
 
-abstract contract A (
+abstract contract A {
     function get() virtual public;
-)
+}
 
 contract Base {
     function foo() virtual public {}
 }
 
-contract Middel isBase {}
+// contract Middel isBase {}
 
-contract Inherited is Middel {
-    function foo() public override {}
-}
+// contract Inherited is Middel {
+//     function foo() public override {}
+// }
 
-contract Base1{
-    function foo() virtual public {}
-}
+// contract Base1{
+//     function foo() virtual public {}
+// }
 
-contract Base2{
-    function foo() virtual public {}
-}
+// contract Base2{
+//     function foo() virtual public {}
+// }
 
-contract Inherited1 is Base1, Base2 {
-    function foo() public override(Base1,Base2){}
-}
+// contract Inherited1 is Base1, Base2 {
+//     function foo() public override(Base1,Base2){}
+// }
 
-interface IToken {
-    function transfer(address recipient,uint256 amount) external;
-}
+// interface IToken {
+//     function transfer(address recipient,uint256 amount) external;
+// }
 
-contract SimpleToken is IToken {
-    mapping(address => uint256) balances;
+// contract SimpleToken is IToken {
+//     mapping(address => uint256) balances;
 
-    constructor(){
-        balances[msg.sender]=10000;
-    }
+//     constructor(){
+//         balances[msg.sender]=10000;
+//     }
 
-    function transfer(address recipient, uint256 amount) public override{
-        require(balances[msg.sender] >= amount, "Not enough funds");
-        balances[msg.sender] -= amount;
-        balances[recipient] += amount;
-    }
-}
+//     function transfer(address recipient, uint256 amount) public override{
+//         require(balances[msg.sender] >= amount, "Not enough funds");
+//         balances[msg.sender] -= amount;
+//         balances[recipient] += amount;
+//     }
+// }
 
-contract Awards {
-    IToken immutable token;
+// contract Awards {
+//     IToken immutable token;
 
-    constructor(IToken _token){
-        token = _token;
-    }
+//     constructor(IToken _token){
+//         token = _token;
+//     }
 
-    function sendBonus(address user) public {
-        token.transfer(user,19);
-    }
-}
+//     function sendBonus(address user) public {
+//         token.transfer(user,19);
+//     }
+// }
